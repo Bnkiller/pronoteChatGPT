@@ -1,0 +1,30 @@
+{% extends "base_ele.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center">Mes Absences</h1>
+
+    {% if absences %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Matière</th>
+                    <th>Date</th>
+                    <th>Professeur</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for absence in absences %}
+                <tr>
+                    <td>{{ absence.nom_matiere }}</td>
+                    <td>{{ absence.heure_absence }}</td>
+                    <td>{{ absence.prof_nom }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-muted">Aucune absence enregistrée.</p>
+    {% endif %}
+</div>
+{% endblock %}

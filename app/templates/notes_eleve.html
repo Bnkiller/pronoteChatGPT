@@ -1,0 +1,47 @@
+{% extends "base_ele.html" %}
+
+{% block content %}
+<h1>PAGE NOTE ELEVE</h1>
+
+<h2>Liste des notes</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Matière</th>
+            <th>Coefficient</th>
+            <th>Note</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for note in notes %}
+        <tr>
+            <td>{{ note.nom_matiere }}</td>
+            <td>{{ note.coef }}</td>
+            <td>{{ note.note }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Moyennes par matière</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Matière</th>
+            <th>Moyenne Pondérée</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for moyenne in moyennes %}
+        <tr>
+            <td>{{ moyenne.nom_matiere }}</td>
+            <td>{{ moyenne.moyenne|round(2) }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Moyenne générale pondérée</h2>
+<p><strong>{{ moyenne_globale|round(2) }}</strong></p>
+
+{% endblock %}

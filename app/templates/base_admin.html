@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Flask</title>
+    <style>
+        /* Styles pour les boutons */
+        .nav-button {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="{{ url_for('admin.admin_home') }}" class="nav-button">Accueil</a>
+        <a href="{{ url_for('admin.students_page') }}" class="nav-button">Liste des élèves</a>
+        <a href="{{ url_for('admin.add_user') }}" class="nav-button">Ajouter des users</a>
+        <a href="{{ url_for('admin.list_users') }}" class="nav-button">Supprimer des users</a>
+        <a href="{{ url_for('auth.login') }}" class="nav-button">Déconnection</a>
+
+    </nav>
+
+    <!-- Contenu dynamique -->
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
